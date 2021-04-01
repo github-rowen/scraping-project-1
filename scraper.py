@@ -50,15 +50,12 @@ for url in all_links[:]:
 		#check if there is next button
 		try:
 			nxt_btn = soup.find('ul', class_='pager').find('li', class_='next')
-			if nxt_btn is not None:
-				#update "page[0] = href value of nxt btn"
-				href = nxt_btn.a['href']
-				u = page[0].split('/')[:-1]
-				nxt_page = '/'.join(u) + '/' +  href
-				#update page[0] value
-				page[0] = nxt_page
-			else:
-				break
+			#update "page[0] = href value of nxt btn"
+			href = nxt_btn.a['href']
+			u = page[0].split('/')[:-1]
+			nxt_page = '/'.join(u) + '/' +  href
+			#update page[0] value
+			page[0] = nxt_page
 		except:
 			break
 			
